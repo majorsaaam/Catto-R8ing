@@ -1,26 +1,41 @@
 {
-  "name": "CattoR8ing",
+  "name": "CattoRating",
   "version": "0.0.1",
   "private": true,
+  "main": "index.js",
   "scripts": {
+    "start": "node connect.js",
+    "start-watch": "nodemon connect.js",
+    "dev": "concurrently \"yarn run start-watch\" \"yarn run startrn\"",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "start": "react-native start",
+    "startrn": "react-native start",
     "test": "jest",
     "lint": "eslint ."
   },
+  "proxy": "http://192.168.0.23:5000",
+  "author": "Major Sam",
+  "license": "MIT",
   "dependencies": {
+    "@babel/preset-env": "^7.14.4",
+    "axios": "^0.21.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.12",
     "react": "17.0.1",
-    "react-native": "0.64.1"
+    "react-native": "0.64.1",
+    "typescript": "^4.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.14.3",
     "@babel/runtime": "^7.14.0",
     "@react-native-community/eslint-config": "^2.0.0",
     "babel-jest": "^27.0.2",
+    "concurrently": "^6.2.0",
     "eslint": "^7.27.0",
     "jest": "^27.0.3",
     "metro-react-native-babel-preset": "^0.66.0",
+    "nodemon": "^2.0.7",
     "react-test-renderer": "17.0.1"
   },
   "jest": {
