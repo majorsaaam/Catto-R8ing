@@ -1,9 +1,15 @@
 import React, {Component} from 'react';
-import { SafeAreaView, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import axios from 'axios';
 
 import Input from './addCat';
 import ListCat from './showCats';
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1
+    }
+})
 
 class Cat extends Component {
   state = {
@@ -23,7 +29,7 @@ class Cat extends Component {
             })
         }
       })
-      .catch(err => console.log("Error!! ", err))
+      .catch(err => console.log(err))
   }
 
 //   deleteCat = (id) => {
@@ -39,11 +45,11 @@ class Cat extends Component {
   render() {
     let { cats } = this.state;
     return(
-      <SafeAreaView>
+      <View style={styles.container}>
         <Text>Cattos</Text>
         <Input getCats={this.getCats}/>
         <ListCat cats={cats} deleteCat={this.deleteCat}/>
-      </SafeAreaView>
+      </View>
     )
   }
 }

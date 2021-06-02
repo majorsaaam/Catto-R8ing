@@ -1,16 +1,18 @@
 import React from 'react';
-import { StyleSheet, SafeAreaView, FlatList, View, Image, Text, StatusBar, ScrollView } from 'react-native';
+import { StyleSheet, View, Image, Text, StatusBar, ScrollView } from 'react-native';
 const ListCat = ({ cats, deleteCat }) => {
   return (
-    <SafeAreaView>
-        <ScrollView >
+    <View style={styles.container} forceInset={{bottom: 'always'}}>
+        <ScrollView style={styles.scrollView}>
             {
                 cats && cats.length > 0 ? (
                     cats.map(cat => {
                         return (
-                            <View key={cat._id}>
-                                <Image key={cat._id} source={{uri: cat.action}} style={{height: 300, resizeMode: 'cover'}} />
-                            </View>
+                            <ScrollView key={cat._id}>
+                                <View>
+                                    <Image key={cat._id} source={{uri: cat.action}} style={{height: 300, resizeMode: 'cover'}} />
+                                </View>
+                            </ScrollView>
                         )
                     })
                 ) : (
@@ -18,17 +20,17 @@ const ListCat = ({ cats, deleteCat }) => {
                 )
             }
         </ScrollView>
-    </SafeAreaView>
+    </View>
   )
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        paddingTop: StatusBar.curentHeight
+        paddingTop: StatusBar.curentHeight,
+        flex: 1
     },
     scrollView: {
-        
+        paddingBottom: 20
     }
 })
 export default ListCat

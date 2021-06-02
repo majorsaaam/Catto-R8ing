@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
-import { SafeAreaView, Text, TextInput, Button } from 'react-native';
+import { SafeAreaView, Text, TextInput, Button, StyleSheet } from 'react-native';
 import axios from 'axios';
+
+const styles = StyleSheet.create({
+    button: {
+        // color: '#777777'
+    }
+})
 
 class Input extends Component {
   state = {
@@ -34,7 +40,7 @@ class Input extends Component {
       <SafeAreaView>
             <Text>Insert the img url below</Text>
             <TextInput placeholder="https://..." onChangeText={this.handleChange} value={action} />
-            <Button title="add catto pic" onPress={this.addCat} />
+            <Button color='#efb5c3' style={styles.button} title="add catto pic" onPress={this.addCat} />
       </SafeAreaView>
     )
   }
